@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -35,4 +36,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+.Navbar-Container{
+  background-color: rgb(67, 135, 238) ;
+}
+.main-sidebar {
+  height: 150vh !important;
 }
