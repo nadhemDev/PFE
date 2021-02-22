@@ -23,7 +23,6 @@ const App = () =>{
       <Route  path='/home' component={Home} />
       <Route  exact path="/Login" component={Login} />
       <Route exact path='/register' component={Register} />
-      <Route exact path='/products/:id' component={Prod} />
     </div>
     </BrowserRouter>
   )

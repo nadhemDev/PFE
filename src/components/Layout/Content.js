@@ -39,7 +39,7 @@ const Content =() =>{
             <Route path={'/home/cart'}>
                 <Cart />
             </Route>
-            <Route path={'/home/products/:id'}>
+            <Route path={'/home/products/id'}>
                 <Prod />
             </Route>
 

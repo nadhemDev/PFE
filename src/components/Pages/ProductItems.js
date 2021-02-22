@@ -20,7 +20,7 @@ export default function ProductItems(props){
                             </p>
                         
                         </Card.Text>
-                        <NavLink to={"/products/:id" +  product.id}  ><button className="btn btn-primary" onClick={getById(product.id)}>Details</button></NavLink>
+                        <NavLink to={'/home/products/' + product.id}><button className="btn btn-primary" onClick={getById(product.id)}>Details</button></NavLink>
                         </Card.Body>
                 </div>
              </div>
