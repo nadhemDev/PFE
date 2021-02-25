@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
+import {removeFromcart} from "../Store/actions/actions";
 
-export default function CartItem(props){
-
-    const {item} = props;
+function ProductItem(props){
+    const {item, index} = props;
     const {product} = item;
 
     return (
@@ -19,10 +20,18 @@ export default function CartItem(props){
                     <br />
                     Total: {item.quantity * product.price}
                 </p>
-                <a href="#" className="btn btn-danger">
+                <button onClick={() => props.removeFromcart(index)} className="btn btn-danger">
                     <i className="fa fa-trash"></i> Delete
-                </a>
+                </button>
             </div>
         </div>
     );
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        removeFromcart: (index) => dispatch(removeFromcart(index)),
+    };
+}
+
+export default connect(null, mapDispatchToProps)(ProductItem);

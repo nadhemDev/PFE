@@ -12,9 +12,9 @@ class Cart extends React.Component{
                 <h1>Cart</h1>
 
                 <div className="row">
-                    {this.props.CartItem.map(item => 
+                    {this.props.CartItem.map((item, index) => 
                         <div className={'col-3'} key={item.product.id}>
-                            <CartItem item={item} />
+                            <CartItem item={item} index={index} />
                         </div>
                     )}
                 </div>
@@ -34,6 +34,8 @@ const mapStateToProps = (state) => {
         CartItem: state.cart,
         total: state.cart.reduce((total, item) => total + item.quantity * item.product.price, 0),
     };
+
+   
     
 }
 export default connect(mapStateToProps)(Cart);
