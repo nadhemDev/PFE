@@ -2,8 +2,18 @@ import React from "react";
 import CartItem from "../Pages/CartItem";
 import ProductsApi from "../../API/products";
 import {connect} from 'react-redux'
+import { clearCart } from "../Store/actions/actions";
 
 class Cart extends React.Component{
+
+
+    placeOrder = () =>{
+        //send the request to the server
+        //clear cart 
+        this.props.clearCart();
+        alert ('no product');
+
+    };
 
   
     render(){
@@ -24,7 +34,7 @@ class Cart extends React.Component{
                     Total: {this.props.total}
                 </h3>
 
-                <button class="btn btn-primary btn-block">Pay</button>
+                <button class="btn btn-primary btn-block" onClick={this.placeOrder}>Place Order</button>
             </div>
         );
     }
@@ -38,4 +48,10 @@ const mapStateToProps = (state) => {
    
     
 }
-export default connect(mapStateToProps)(Cart);
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        clearCart: () => dispatch(clearCart()),
+    };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
