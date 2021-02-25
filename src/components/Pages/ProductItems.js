@@ -4,27 +4,22 @@ import {NavLink} from 'react-router-dom'
 import products, {getById} from '../../API/products'
 
 
-export default function ProductItems(props){
+export default function ProductItem(props){
     const {product} = props;
-    
-    
+
     return (
-            <div>
-                <div class="card" >
-                    <Card.Img variant="top" src={product.image}  height="200"  />
-                        <Card.Body>
-                        <Card.Title>{product.name}</Card.Title>
-                        <Card.Text>
-                            <p className="card-text">
-                           Prix: {product.price}$
-                            </p>
-                        
-                        </Card.Text>
-                        <NavLink to={'/home/products/' + product.id}><button className="btn btn-primary" onClick={getById(product.id)}>Details</button></NavLink>
-                        </Card.Body>
-                </div>
-             </div>
+        <div className="card">
+            <img src={product.image} className="card-img-top" alt="..." />
+            <div className="card-body">
+                <h3 className="card-title">
+                    {product.name}
+                </h3>
+                <p className="card-text">
+                    Price:{product.price}$
+                </p>
                 
-        
+                <NavLink to={"/products/" + product.id} className="btn btn-primary">Details</NavLink>
+            </div>
+        </div>
     );
 }

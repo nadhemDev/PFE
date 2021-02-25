@@ -1,11 +1,39 @@
-import React from 'react'
+import React from "react";
+import CartItem from "../Pages/CartItem";
+import ProductsApi from "../../API/products";
+import {connect} from 'react-redux'
 
-const Cart = () => {
-    return (
-        <div>
-            Cart 
-        </div>
-    )
+class Cart extends React.Component{
+
+  
+    render(){
+        return (
+            <div>
+                <h1>Cart</h1>
+
+                <div className="row">
+                    {this.props.CartItem.map(item => 
+                        <div className={'col-3'} key={item.product.id}>
+                            <CartItem item={item} />
+                        </div>
+                    )}
+                </div>
+
+                <br />
+                <h3>
+                    Total: {this.props.total}
+                </h3>
+
+                <button class="btn btn-primary btn-block">Pay</button>
+            </div>
+        );
+    }
 }
-
-export default Cart;
+const mapStateToProps = (state) => {
+    return {
+        CartItem: state.cart,
+        total: state.cart.reduce((total, item) => total + item.quantity * item.product.price, 0),
+    };
+    
+}
+export default connect(mapStateToProps)(Cart);

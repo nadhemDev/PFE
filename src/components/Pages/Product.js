@@ -1,45 +1,94 @@
-import React, { Component } from 'react'
-import ProductItems from './ProductItems'
-import ProductsApi from '../../API/products';
+import React from "react";
+import {getById} from "../../API/products";
+import {addTOcart} from '../Store/actions/actions'
+import {connect} from 'react-redux'
 
-export default class Product extends React.Component{
 
-    state = {
-        products: [],
+
+ class Product extends React.Component{
+
+    state={
+        loading: true,
+        quantity: 0,
+        product: {}
     };
-
+    
     componentDidMount(){
-        ProductsApi.getAll()
-        .then( data => {
-            this.setState({
+        const id = this.props.match.params.id;
 
-           products: data
-         })
+        getById(parseInt(id))
+            .then(product => {
+                this.setState({
+                    product,
+                    loading: false
+                });
+            })
+    }
 
-        
+    handlQuantity = (event) =>{
+        const value = event.target.value;
 
+        if(value <0 )
 
-        });
+        return ;
+
+        this.setState({
+            quantity:value
+        })
 
     }
 
-     render() {
+    addTOcart = (product) => {
+        this.props.addTOcart(product, this.state.quantity);
 
-    return (
-        <div>
-            <h1>Products</h1>
-            <br ></br>
-            <div className="row">
-                {this.state.products.map(product => 
-                <div className="col-md-3">
-               <ProductItems   product={product} />
-               </div>
-               )}
-            
-             </div>
-        </div>
-    );
+    }
+
+    render(){
+        if(this.state.loading)
+            return 'Loading ..';
+
+        const product = this.state.product;
+        const quantity = this.state.quantity;
+
+        
+
+        return (
+            <div>
+                <div className={'row'}>
+                    <div className="col-6">
+                        <img src={product.image} width={'70%'}/>
+                    </div>
+                    <div className="col-6">
+                    <h1>{product.name}</h1>
+
+                        <p>Price: {product.price}$</p>
+
+                        <p>Descrption</p>
+
+                        <br/><br/>
+
+                        <input type="number" value={quantity} onChange={this.handlQuantity} />
+                        
+                        <br /><br />
+
+                        <p>Total: {quantity * product.price}</p>
+
+
+                        <button className="btn btn-primary" onClick={() => this.addTOcart(product)}>
+                            Add to Cart
+                        </button>
+
+                    </div>
+                </div> 
+            </div>
+        );
+    }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addTOcart: (productsInfo, quantity) => dispatch(addTOcart(productsInfo, quantity)),
+       
+    };
 }
-
-
+export default connect(null, mapDispatchToProps)(Product);

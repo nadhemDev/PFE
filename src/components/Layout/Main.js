@@ -1,5 +1,5 @@
 import React from 'react'
-import  Product from '../Pages/Product'
+import  Products from '../Pages/Products'
 import { NavLink } from 'react-router-dom';
 import '../../App.css';
 import { FcShop } from 'react-icons/fc';
@@ -51,9 +51,9 @@ export default function Footer() {
           </NavLink>
           </li>
           <li className="nav-item menu-open">
-          <NavLink to='/home/product' className="nav-link active">
+          <NavLink to='/home/Products' className="nav-link active">
             <p>
-              Product
+              Products
             </p>
           </NavLink>
           </li>

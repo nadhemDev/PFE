@@ -1,28 +1,28 @@
 [
   {
     "id": 1,
-    "name": "phone1",
+    "name": "Phone1",
     "price": 100,
     "image": "../dist/img/1.jpg",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the\n          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
   },
   {
     "id": 2,
-    "name": "phone2",
+    "name": "Phone2",
     "price": 1000,
     "image": "../dist/img/2.png",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the\n          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
   },
   {
     "id": 3,
-    "name": "phone3",
+    "name": "Phone3",
     "price": 2000,
     "image": "../dist/img/3.jpg",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the\n          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
   },
   {
     "id": 4,
-    "name": "phone4",
+    "name": "Phone4",
     "price": 150,
     "image": "../dist/img/3.webp",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the\n          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."

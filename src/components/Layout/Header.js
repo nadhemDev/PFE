@@ -63,7 +63,8 @@ const Click  = () =>{
             <small>11 mins ago</small>
           </Toast.Header>
           <Toast.Body> 
-          <NavLink to ={'/home/cart'}><button>cart
+          <NavLink to ={'/home/cart'}><button>
+            Cart
             </button></NavLink>
 
           </Toast.Body>

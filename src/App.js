@@ -9,7 +9,9 @@ import Home from './components/Pages/Home';
 import Register from './components/Auth/Register';
 import Categories from './components/Pages/Categories';
 import Cart from './components/Pages/Cart'
-import Prod from './components/Pages/Prod';
+import Product from './components/Pages/Product';
+import store from "./components/Store/Store";
+import {Provider} from 'react-redux';
 
 import './App.css'
 
@@ -23,8 +25,17 @@ const App = () =>{
       <Route  path='/home' component={Home} />
       <Route  exact path="/Login" component={Login} />
       <Route exact path='/register' component={Register} />
+      <Route exact  path="/products/:id" component={Product} />
     </div>
     </BrowserRouter>
   )
 }
-export default App;
+
+
+
+function AppwithSotre(){
+  return   <Provider store={store}>
+    <App />
+    </Provider>
+}
+export default AppwithSotre;

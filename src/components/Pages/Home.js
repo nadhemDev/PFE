@@ -5,7 +5,8 @@ import Main from '../Layout/Main';
 import Footer from '../Layout/Footer'
 import handelClick from '../Layout/Content'
 import Categories from '../Pages/Categories';
-import Prod from '../Pages/Prod';
+import Product from '../Pages/Product';
+import { MdShoppingBasket } from 'react-icons/md';
 
 
 const Home = () => {
